@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using eShopFlower.Data.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using eShopFlower.Data.Extensions;
 
 namespace eShopFlower.Data.EF
 {
@@ -43,7 +44,7 @@ namespace eShopFlower.Data.EF
          //   modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
          //   modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
             //Data seeding
-            // modelBuilder.Seed();
+             modelBuilder.Seed();
             //  base.OnModelCreating(modelBuilder);
         }
 
