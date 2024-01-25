@@ -29,7 +29,7 @@ namespace eShopFlower.Data.Configuration
 
             builder.Property(x => x.ShipPhoneNumber).IsRequired().HasMaxLength(10);
 
-          //  builder.HasOne(x => x.AppUser).WithMany(x => x.Orders).HasForeignKey(x => x.UserId);
+            builder.HasOne(x => x.AppUser).WithMany(x => x.Orders).HasForeignKey(x => x.UserId);
         }
     }
 }
