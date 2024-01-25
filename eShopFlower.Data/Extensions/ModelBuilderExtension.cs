@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using eShopFlower.Data.Entities;
 using eShopFlower.Data.Enums;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace eShopFlower.Data.Extensions
@@ -124,8 +125,39 @@ namespace eShopFlower.Data.Extensions
             modelBuilder.Entity<ProductInCategory>().HasData(
                 new ProductInCategory() { ProductId = 1, CategoryId = 1 },
              new ProductInCategory() { ProductId = 2, CategoryId = 2 }
-                );        
+                );
+            // any guid
+            var roleId = new Guid("F8F0B9B6-4F9B-4AF6-B02C-15096528DC89");
+            var adminId = new Guid("DC5FBC3B-E067-4D0C-80E3-00348A067D79");
+            modelBuilder.Entity<AppRole>().HasData(new AppRole
+            {
+                Id = roleId,
+                Name = "admin",
+                NormalizedName = "admin",
+                Description = "Administrator role"
+            });
 
+            var hasher = new PasswordHasher<AppUser?>();
+            modelBuilder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = adminId,
+                UserName = "admin",
+                NormalizedUserName = "admin",
+                Email = "tuananhlai0920@gmail.com",
+                NormalizedEmail = "tuananhlai0920@gmail.com",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "Abcd1234$"),
+                SecurityStamp = string.Empty,
+                FirstName = "Hung",
+                LastName = "Nguyen",
+                Dob = new DateTime(2020, 01, 31)
+            });
+
+            modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(new IdentityUserRole<Guid>
+            {
+                RoleId = roleId,
+                UserId = adminId
+            });
         }
 
     }

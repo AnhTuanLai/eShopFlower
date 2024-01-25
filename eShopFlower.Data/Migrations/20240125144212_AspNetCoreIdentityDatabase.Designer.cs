@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eShopFlower.Data.EF;
 
@@ -11,9 +12,10 @@ using eShopFlower.Data.EF;
 namespace eShopFlower.Data.Migrations
 {
     [DbContext(typeof(eShopFlowerDbContext))]
-    partial class eShopFlowerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240125144212_AspNetCoreIdentityDatabase")]
+    partial class AspNetCoreIdentityDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,16 +78,6 @@ namespace eShopFlower.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("f8f0b9b6-4f9b-4af6-b02c-15096528dc89"),
-                            ConcurrencyStamp = "14d8c982-e37a-48ca-8781-67e8743a7234",
-                            Description = "Administrator role",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("eShopFlower.Data.Entities.AppUser", b =>
@@ -152,27 +144,6 @@ namespace eShopFlower.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("dc5fbc3b-e067-4d0c-80e3-00348a067d79"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "2ad9ec9f-b810-4c9d-afda-731bb230a4e1",
-                            Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "tuananhlai0920@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Hung",
-                            LastName = "Nguyen",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "tuananhlai0920@gmail.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJS3BIMYExog3uDXJgdsj7f3C6FKTeXPMFBG40G4Dnc7E65CGYl1Ui23hH1aGJvyyg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("eShopFlower.Data.Entities.Cart", b =>
@@ -509,7 +480,7 @@ namespace eShopFlower.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2024, 1, 25, 21, 56, 24, 548, DateTimeKind.Local).AddTicks(3324),
+                            DateCreated = new DateTime(2024, 1, 25, 21, 42, 12, 172, DateTimeKind.Local).AddTicks(29),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -518,7 +489,7 @@ namespace eShopFlower.Data.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2024, 1, 25, 21, 56, 24, 548, DateTimeKind.Local).AddTicks(3331),
+                            DateCreated = new DateTime(2024, 1, 25, 21, 42, 12, 172, DateTimeKind.Local).AddTicks(37),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -888,13 +859,6 @@ namespace eShopFlower.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("dc5fbc3b-e067-4d0c-80e3-00348a067d79"),
-                            RoleId = new Guid("f8f0b9b6-4f9b-4af6-b02c-15096528dc89")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
