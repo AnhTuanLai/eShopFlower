@@ -1,4 +1,6 @@
+using System.Text.Json.Serialization;
 using eShopFlower.Application.Catalog.Products;
+using eShopFlower.Application.Common;
 using eShopFlower.Data.EF;
 using eShopFlower.Utilities.Constants;
 using Microsoft.EntityFrameworkCore;
@@ -11,8 +13,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<eShopFlowerDbContext>(options =>
               options.UseSqlServer(builder.Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
+//builder.Services.AddControllers().AddNewtonsoftJson();
 // declare DI
+builder.Services.AddTransient<IStorageService, FileStorageService>();
 builder.Services.AddTransient<IPublicProductService, PublicProductService>();
+builder.Services.AddTransient<IManageProductsService, ManageProductService>();
+
+
 builder.Services.AddSwaggerGen(c =>
  {
      c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger eShop Flower", Version = "v1" });

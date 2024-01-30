@@ -27,7 +27,7 @@ namespace eShopFlower.Application.Common
 
         public string GetFileUrl(string fileName)
         {
-            return $"{USER_CONTENT_FOLDER_NAME}/{fileName}";
+            return $"/{USER_CONTENT_FOLDER_NAME}/{fileName}";
         }
 
         public async Task SaveFileAsync(Stream mediaBinaryStream, string fileName)

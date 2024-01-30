@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eShopFlower.Data.Entities
 {
-    public  class Language
+    public class Language
     {
         public string? Id { get; set; }
 
