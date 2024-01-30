@@ -9,6 +9,7 @@ namespace eShopFlower.ViewModels.Catalog.Products
 {
     public class GetPublicProductPadingRequest : PagingRequestBase
     {
-       public int? CategoryId { get; set; }
+       // public string? LanguageId { get; set; }
+        public int? CategoryId { get; set; }
     }
 }
