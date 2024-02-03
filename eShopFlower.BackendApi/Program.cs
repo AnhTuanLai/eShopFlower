@@ -32,7 +32,8 @@ builder.Services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
 builder.Services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
 builder.Services.AddTransient<IUserService, UserService>();
 
-builder.Services.AddControllers().AddFluentValidation(fw => fw.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>()); ;
+builder.Services.AddControllers()
+    .AddFluentValidation(fw => fw.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 
 builder.Services.AddSwaggerGen(c =>
  {
