@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace eShopFlower.Utilities.Constants
 {
-    public class SystemConstants
-    {
-        public const string MainConnectionString = "ShopFlowerDB";
-    }
+	public class SystemConstants
+	{
+		public const string MainConnectionString = "ShopFlowerDB";
+
+		public class AppSettings
+		{
+			public const string DefaultLanguageId = "DefaultLanguageId";
+
+			public const string Token = "Token";
+
+			public const string BaseAddress = "BaseAddress";
+		}
+	}
 }
